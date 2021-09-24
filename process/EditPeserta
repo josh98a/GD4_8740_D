@@ -8,6 +8,8 @@
             
         // tampung nilai yang ada di from ke variabel
         // sesuaikan variabel name yang ada di registerPage.php disetiap input
+		$id = $_GET['id'];
+		
         $username = $_POST['username'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $name = $_POST['name'];
@@ -17,21 +19,20 @@
 
         // Melakukan insert ke databse dengan query dibawah ini
         $query = mysqli_query($con,
-        "INSERT INTO users(username, password, name, npm, prodi)
-        VALUES
-        ('$username', '$password', '$name', '$npm', '$prodi')")
+        "UPDATE users SET username='$username', password='$password', name='$name', npm='$npm', prodi='$prodi'
+            WHERE id='$id'")
         or die(mysqli_error($con)); // perintah mysql yang gagal dijalankan ditangani oleh perintah “or die”
 
         if($query){
             echo
             '<script> 
-                alert("Create Data Success"); window.location = "../page/listMahasiswaPage.php"
+                alert("Edit Data Success"); window.location = "../page/listMahasiswaPage.php"
             </script>';
 
         } else{
             echo
             '<script>
-                alert("Create Data Failed");
+                alert("Edit Data Failed");
             </script>';
         }
     }
