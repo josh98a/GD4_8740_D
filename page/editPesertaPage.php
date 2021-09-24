@@ -43,7 +43,7 @@
 </div>
 
 <div class="d-grid gap-2">
-<button type="submit" class="btn btn-primary" name="register">Simpan</button>
+<button type="submit" class="btn btn-primary" name="register">Save</button>
 </div>
 </form>
 </div>
